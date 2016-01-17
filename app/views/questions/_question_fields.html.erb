@@ -6,5 +6,6 @@
     <%= f.fields_for :answers do |builder| %>
       <%= render 'answers/answer_fields', f: builder %>
     <% end %>
+    <%= link_to_add_fields "Add Answer", f, :answers %>
   </ul>
 </div>
