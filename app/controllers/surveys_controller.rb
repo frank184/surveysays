@@ -15,6 +15,8 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    questions = 3.times { @survey.questions.build }
+    @survey.questions.each { |question| 5.times { question.answers.build } }
   end
 
   # GET /surveys/1/edit
