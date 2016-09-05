@@ -7,8 +7,17 @@ $(document).on 'ready page:load', ->
     $(this).closest('.field').hide()
     event.preventDefault()
 
-  $('form').on 'click', '.add_fields', (event) ->
+  $('form')
+  .on 'click', '.add_fields', (event) ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+  .on 'click', '.remove_question', (event) ->
+    $question = $(this).closest('.question')
+    $input = $question.find('input.question_content')
+    unless $input.val() then $question.remove()
+  .on 'click', '.remove_answer', (e) ->
+    $answer = $(this).closest('.answer')
+    $input = $answer.find('input.answer_content')
+    unless $input.val() then $answer.remove()
