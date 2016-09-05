@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+
   <strong>Name:</strong>
-  <%= @survey.name %>
-</p>
+  <%= @survey.name %>7
+  <br>
+  <strong>Questions:</strong>
+  <br>
+  <% @survey.questions.each do |question| %>
+    <%= question.content %>
+    <br>
+    <strong>Answers:</strong>
+    <br>
+    <% question.answers.each do |answer| %>
+      <%= answer.content %><br>
+    <% end %>
+  <% end %>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>
